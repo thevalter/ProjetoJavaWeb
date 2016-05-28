@@ -37,6 +37,7 @@ public class ServletCadastro extends HttpServlet {
        novaPessoa.setRg(request.getParameter("rg"));
        novaPessoa.setEmail(request.getParameter("email"));
        novaPessoa.setEndereco(request.getParameter("endereco"));
+        novaPessoa.setTelefone(request.getParameter("telefone"));
        
        JdbcPessoaDao pessoa = new JdbcPessoaDao();
        boolean validarCadastro = pessoa.insert(novaPessoa);
