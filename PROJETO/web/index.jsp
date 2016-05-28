@@ -56,11 +56,10 @@
     <body onload="validar()">
       
         
-
             <br><br>
             <section>				
                 <div id="container_demo" >
-                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                  
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
@@ -78,11 +77,13 @@
 
                                 <p class="login button"> 
                                     <input type="submit" value="Entrar" /> 
-								</p>
+				</p>
+                               
                                 <p class="change_link">
-									Não é cliente ?
-									<a href="#toregister" class="to_register">Cadastre-se</a>
-								</p>
+                                    Não é cliente ?
+                                    <a href="#toregister" class="to_register">Cadastre-se</a>
+				</p>
+                                
                             </form>
                         </div>
 
@@ -108,6 +109,10 @@
                                 <p> 
                                     <label for="enderecosigin" class="youpasswd" data-icon="e"> Endereço </label>
                                     <input id="passwordsignup" name="endereco" required="required" type="text" placeholder="Rua C, n.82"/>
+                                </p>
+                                <p> 
+                                    <label for="enderecosigin" class="youpasswd" data-icon="f"> Telefone </label>
+                                    <input id="passwordsignup" name="telefone" required="required" type="text" placeholder="(xx)xxxx-xxxx"/>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon="u"> Usuario </label>
