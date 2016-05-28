@@ -41,7 +41,7 @@
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" > Preço por Unidade</label>
-                                    <input id="emailsignup" name="preco" required="required" type="email" placeholder="10,00"/> 
+                                    <input id="emailsignup" name="preco" required="required" type="text" placeholder="10,00"/> 
                                 </p>
                                 <p> 
                                     <label for="cpfsigin" class="youpasswd" > Centro </label>
