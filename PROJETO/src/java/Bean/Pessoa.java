@@ -13,6 +13,7 @@ public class Pessoa {
  private String email;
  private String rg;
  private String foto;
+ private String telefone;
  
  public Pessoa(){}
 
@@ -140,6 +141,20 @@ public class Pessoa {
      */
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
     
     
