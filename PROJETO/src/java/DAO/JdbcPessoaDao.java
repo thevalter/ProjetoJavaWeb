@@ -91,7 +91,7 @@ public class JdbcPessoaDao implements PessoaDao{
          prep.setString(6, pessoa.getEmail());
          prep.setString(7, pessoa.getTelefone());
          prep.setString(8, pessoa.getRg());
-         prep.setString(8, pessoa.getId());
+         prep.setInt(8, pessoa.getId());
          int update = prep.executeUpdate();
          
          if(update <= 0){
@@ -200,8 +200,10 @@ public class JdbcPessoaDao implements PessoaDao{
     
     }
     
-    public boolean validar(Pessoa pessoa){
+    public Pessoa validar(Pessoa pessoa){
 
+        Pessoa pessoa1 = new Pessoa();
+        
     try{
            
          String sql = "select * from customers where user_login = ? and password = ?";
@@ -213,7 +215,12 @@ public class JdbcPessoaDao implements PessoaDao{
          
          if(rs.next()){
          
-             return true;
+             
+             pessoa1.setUsuario(rs.getString("fullname"));
+             pessoa1.setId(rs.getInt("id"));
+             pessoa1.setUser_nivel(rs.getInt("endereco"));
+             
+             return pessoa1;
              
          }
 
@@ -224,7 +231,7 @@ public class JdbcPessoaDao implements PessoaDao{
             Logger.getLogger(JdbcPessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     
-        return false;
+        return pessoa1;
         
     }
     
