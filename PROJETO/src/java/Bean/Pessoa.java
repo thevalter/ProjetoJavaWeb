@@ -4,7 +4,7 @@ package Bean;
 
 public class Pessoa {
  
- private String id;
+ private int id;
  private String nome;
  private String cpf;
  private String usuario;
@@ -14,20 +14,21 @@ public class Pessoa {
  private String rg;
  private String foto;
  private String telefone;
+ private int user_nivel;
  
  public Pessoa(){}
 
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -155,6 +156,20 @@ public class Pessoa {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    /**
+     * @return the user_nivel
+     */
+    public int getUser_nivel() {
+        return user_nivel;
+    }
+
+    /**
+     * @param user_nivel the user_nivel to set
+     */
+    public void setUser_nivel(int user_nivel) {
+        this.user_nivel = user_nivel;
     }
     
     
