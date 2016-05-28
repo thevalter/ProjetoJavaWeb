@@ -24,7 +24,7 @@ public class JdbcPessoaDao implements PessoaDao{
     
     try{
         
-            String sql = "select * from pessoa where usuario = ?";
+            String sql = "select * from customers where user_login = ?";
             PreparedStatement prep = connection.prepareStatement(sql);
             prep.setString(1, pessoa.getUsuario());
             ResultSet rs = prep.executeQuery();
@@ -50,7 +50,7 @@ public class JdbcPessoaDao implements PessoaDao{
        if(!(validarCadastroLogin(pessoa))){ 
        try{
            
-         String sql = "insert into pessoa(nome,cpf,usuario,senha,endereco,rg,email,nivel) values(?,?,?,?,?,?,?,0)";
+         String sql = "insert into customers(fullname,cpf,user_login,password,endereco,rg,email,user_nivel,telefone) values(?,?,?,?,?,?,?,0,?)";
          
          PreparedStatement prep = connection.prepareStatement(sql);
          prep.setString(1, pessoa.getNome());
@@ -60,6 +60,7 @@ public class JdbcPessoaDao implements PessoaDao{
          prep.setString(5, pessoa.getEndereco());
          prep.setString(6, pessoa.getRg());
          prep.setString(7, pessoa.getEmail());
+         prep.setString(8, pessoa.getTelefone());
          prep.executeUpdate();
          return true;
 
@@ -79,14 +80,18 @@ public class JdbcPessoaDao implements PessoaDao{
      
       try{
 
-         String sql = "update pessoa set nome = ?, cpf = ?, login = ?, senha = ? where id_pessoa = ?";
+         String sql = "update customers set fullname = ?, cpf = ?, user_login = ?, password = ?, endereco = ?, email = ?, telefone = ?, rg = ? where id = ?";
          
          PreparedStatement prep = connection.prepareStatement(sql);
          prep.setString(1, pessoa.getNome());
          prep.setString(2, pessoa.getCpf());
          prep.setString(3, pessoa.getUsuario());
          prep.setString(4, pessoa.getSenha());
-         prep.setString(5, pessoa.getId());
+         prep.setString(5, pessoa.getEndereco());
+         prep.setString(6, pessoa.getEmail());
+         prep.setString(7, pessoa.getTelefone());
+         prep.setString(8, pessoa.getRg());
+         prep.setString(8, pessoa.getId());
          int update = prep.executeUpdate();
          
          if(update <= 0){
@@ -110,7 +115,7 @@ public class JdbcPessoaDao implements PessoaDao{
       try{
 
        
-         String sql = "delete from pessoa where id_pessoa = ?";
+         String sql = "delete from customers where id = ?";
          PreparedStatement prep = connection.prepareStatement(sql);
          prep.setInt(1, id);
          prep.executeUpdate();
@@ -131,21 +136,22 @@ public class JdbcPessoaDao implements PessoaDao{
         
         try{
         
-            String sql = "select * from pessoa";
+            String sql = "select * from customers";
             PreparedStatement prep = connection.prepareStatement(sql);
             ResultSet rs = prep.executeQuery();
             
             while(rs.next()){
         
                 Pessoa pessoa = new Pessoa();
-                pessoa.setNome(rs.getString("nome"));
+                pessoa.setNome(rs.getString("fullname"));
                 pessoa.setCpf(rs.getString("cpf"));
                 pessoa.setEndereco(rs.getString("endereco"));
                 pessoa.setRg(rs.getString("rg"));
                 pessoa.setEmail(rs.getString("email"));
-                pessoa.setFoto(rs.getString("foto"));
+                pessoa.setFoto(rs.getString("image_link"));
                 pessoa.setUsuario(rs.getString("usuario"));
                 pessoa.setSenha(rs.getString("senha"));
+                pessoa.setTelefone(rs.getString("telefone"));
                 pessoas.add(pessoa);
 
             }
@@ -165,21 +171,22 @@ public class JdbcPessoaDao implements PessoaDao{
      
             try{
         
-            String sql = "select * from pessoa where id_pessoa = ?";
+            String sql = "select * from customers where id = ?";
             PreparedStatement prep = connection.prepareStatement(sql);
             prep.setInt(1, id);
             ResultSet rs = prep.executeQuery();
             
             while(rs.next()){
                 
-                pessoa.setNome(rs.getString("nome"));
+                pessoa.setNome(rs.getString("fullname"));
                 pessoa.setCpf(rs.getString("cpf"));
                 pessoa.setEndereco(rs.getString("endereco"));
                 pessoa.setRg(rs.getString("rg"));
                 pessoa.setEmail(rs.getString("email"));
-                pessoa.setFoto(rs.getString("foto"));
-                pessoa.setUsuario(rs.getString("usuario"));
-                pessoa.setSenha(rs.getString("senha"));
+                pessoa.setFoto(rs.getString("image_link"));
+                pessoa.setUsuario(rs.getString("user_login"));
+                pessoa.setSenha(rs.getString("password"));
+                pessoa.setTelefone(rs.getString("telefone"));
 
             }
             return pessoa;
@@ -197,7 +204,7 @@ public class JdbcPessoaDao implements PessoaDao{
 
     try{
            
-         String sql = "select * from pessoa where usuario = ? and senha = ?";
+         String sql = "select * from customers where user_login = ? and password = ?";
          
          PreparedStatement prep = connection.prepareStatement(sql);
          prep.setString(1, pessoa.getUsuario());
