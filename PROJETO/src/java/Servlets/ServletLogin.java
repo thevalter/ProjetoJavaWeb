@@ -40,25 +40,37 @@ public class ServletLogin extends HttpServlet {
 
        
        JdbcPessoaDao pessoaDao = new JdbcPessoaDao();
-       boolean validar = pessoaDao.validar(novaPessoa);
+       Pessoa pessoaLogada = new Pessoa();
+       pessoaLogada = pessoaDao.validar(novaPessoa);
        int erro = 1;
         
        
        
        
-       if(validar){
+       if(pessoaLogada.getUsuario() instanceof String){
        
             HttpSession session = request.getSession();
-            session.setAttribute("usuario", novaPessoa.getUsuario());
+            session.setAttribute("usuario", pessoaLogada.getUsuario());
+            session.setAttribute("id", pessoaLogada.getId());
+            session.setAttribute("nivel", pessoaLogada.getUser_nivel());
             session.setMaxInactiveInterval(10*60);
-            response.sendRedirect("exibirTodos.jsp");
+            
+            if(pessoaLogada.getUser_nivel() > 0){
+                        
+                response.sendRedirect("admPage.jsp");
+            
+            }else{
+            
+                response.sendRedirect("clientePage.jsp");
+            
+            }
+
             
        }else{
        
             RequestDispatcher r = request.getRequestDispatcher( "index.jsp" );
             request.setAttribute("validar", erro);
             r.forward( request, response );  
-            response.sendRedirect("exibirTodos.jsp");
        }
        
     }
