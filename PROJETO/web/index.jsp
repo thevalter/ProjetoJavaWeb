@@ -56,8 +56,7 @@
     <body onload="validar()">
       
         
-         <div class="clr"></div>
-            </div><!--/ Codrops top bar -->
+
             <br><br>
             <section>				
                 <div id="container_demo" >
