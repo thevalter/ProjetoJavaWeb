@@ -92,7 +92,7 @@
                                 <h1> Cadastro de Cliente </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Nome Completo</label>
-                                    <input id="usernamesignup" name="nome" required="required" type="text" placeholder="mysuperusername690" />
+                                    <input id="usernamesignup" name="nome" required="required" type="text" placeholder="João da Silva" />
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon="e" > E-mail</label>
