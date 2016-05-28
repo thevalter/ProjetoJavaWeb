@@ -108,7 +108,7 @@
                                 </p>
                                 <p> 
                                     <label for="enderecosigin" class="youpasswd" data-icon="e"> Endereço </label>
-                                    <input id="passwordsignup" name="endereco" required="required" type="password" placeholder="Rua C, n.82"/>
+                                    <input id="passwordsignup" name="endereco" required="required" type="text" placeholder="Rua C, n.82"/>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon="u"> Usuario </label>
