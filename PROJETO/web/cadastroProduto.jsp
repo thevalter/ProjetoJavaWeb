@@ -50,8 +50,8 @@
                                 <p> 
                                     <label for="rgsigin" class="youpasswd" > Tipo </label>
                                     <select>
-                                     <option  value="volvo">SALGADO</option>
-                                     <option value="saab">DOCE</option>
+                                     <option  value="salgado">SALGADO</option>
+                                     <option value="doce">DOCE</option>
 
                                     </select>
                                 </p>
