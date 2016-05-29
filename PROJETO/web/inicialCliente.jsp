@@ -52,11 +52,20 @@
     
     <%
     
+    if(session.getAttribute("id") == null){
     
-    JdbcPessoaDao p = new JdbcPessoaDao();
+    RequestDispatcher r = request.getRequestDispatcher( "index.jsp" );
+    r.forward( request, response );  
+    
+    }
+        
+        
+        
+        
     Pessoa pCliente = new Pessoa();
-    String idCliente = session.getAttribute("id").toString();
     String nivel;
+    JdbcPessoaDao p = new JdbcPessoaDao();
+    String idCliente = session.getAttribute("id").toString();
     pCliente = p.search(Integer.parseInt(idCliente));
     if(pCliente.getUser_nivel() > 0){
     nivel = "Administrador";
