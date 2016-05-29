@@ -4,6 +4,8 @@
     Author     : Douglas
 --%>
 
+<%@page import="Bean.Pessoa"%>
+<%@page import="DAO.JdbcPessoaDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,11 +45,37 @@
              
           </script>
                 
-                
+             
                 
                 
     </head>
     <body>
+        
+        
+        <%
+    
+    
+    JdbcPessoaDao p = new JdbcPessoaDao();
+    Pessoa pCliente = new Pessoa();
+    String idCliente = session.getAttribute("id").toString();
+    String nivel;
+    pCliente = p.search(Integer.parseInt(idCliente));
+    if(pCliente.getUser_nivel() > 0){
+    nivel = "Administrador";
+    }else{
+    nivel = "Cliente";
+    }
+    
+    
+    
+
+    
+    %> 
+        
+        
+        
+        
+        
         
         
         <br><br>
@@ -57,7 +85,7 @@
 
                     <div id="wrapper">
                        
-                             <h1> Area do Administrador </h1> 
+                             <h1> Area do Administrador  </h1> 
 
                                     <p class="signin button"> 
 				    
@@ -67,7 +95,47 @@
                                    
      
                                     </p>
+                                     <div>
+                                        
+                                        <table width="100%" border="1">
+                                            
+                                            
+                                           <tr>
+                                            <td>Nome:</td>
+                                            <td><%= pCliente.getNome() %></td> 
+                                            
+                                            <td>Cpf:</td>
+                                            <td><%= pCliente.getCpf() %></td>
+       
+                                          </tr>
+                                          
+                                          <tr>
+                                            <td>Rg:</td>
+                                            <td><%= pCliente.getRg() %></td>
+                                            <td>Email:</td>
+                                            <td><%= pCliente.getEmail() %></td>
+                                         
+                                          </tr> 
+                                             
+                                          <tr>
+                                            <td>Endereço:</td>
+                                            <td><%= pCliente.getEndereco() %></td>
+                                            <td>Telefone:</td>
+                                            <td><%= pCliente.getTelefone() %></td>
+                                          </tr> 
+                                          <tr>
+                                            <td>Usuario:</td>
+                                            <td><%= pCliente.getUsuario() %></td>
+                                            <td>Nivel de Acesso:</td>
+                                            <td><%= nivel %></td>
+                                          </tr>  
+                                            
+                                            
+                                            
+                                            
+                                        </table>
 
+                                    </div>
                         </div>
                     </div>
                  
