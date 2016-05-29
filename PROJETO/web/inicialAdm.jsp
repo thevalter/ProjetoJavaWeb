@@ -54,6 +54,13 @@
         
         <%
     
+    if(session.getAttribute("id") == null){
+    
+    RequestDispatcher r = request.getRequestDispatcher( "index.jsp" );
+    r.forward( request, response );  
+    
+    
+    }
     
     JdbcPessoaDao p = new JdbcPessoaDao();
     Pessoa pCliente = new Pessoa();
