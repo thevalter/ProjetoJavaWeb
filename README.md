@@ -5,7 +5,7 @@ Sistema com CRUD completo para venda de doces e salgados
 Banco: Postgres
 Java WEB
 
-Parte do Cliente
+Cliente
 --------------------------------------------------------------------------------------------------------------------------------------
 
 Login
@@ -23,13 +23,13 @@ Historico de Pedidos
 Novo Pedido
 ![](https://raw.githubusercontent.com/valterbarros/ProjetoJavaWeb/master/prints%20tela/Tela%20cliente%20novo%20pedido.png)
 
-Parte Adm
+Adm
 --------------------------------------------------------------------------------------------------------------------------------------
 
 Inicial Adm
 ![](https://raw.githubusercontent.com/valterbarros/ProjetoJavaWeb/master/prints%20tela/Tela%20inicial%20Admin.png)
 
-Listagem de Cliente
+Listagem de Clientes
 ![](https://raw.githubusercontent.com/valterbarros/ProjetoJavaWeb/master/prints%20tela/Tela%20admin%20listagem%20de%20cliente.png)
 
 Listagem de Produtos
